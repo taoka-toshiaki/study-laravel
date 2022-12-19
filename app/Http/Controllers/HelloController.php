@@ -11,6 +11,7 @@ class HelloController extends Controller
         $data =[
         'id'=>$id,
         'pass'=>$pass,
+        'data'=>['QA1','QA2','QA3','QA4','QA5','QA6','QA7','QA8','QA9'],
         'data1'=>$request->url()?$request->url():"",
         'data2'=>$request->fullUrl()?$request->fullUrl():"",
         'data3'=>$request->path()?$request->path():""
@@ -21,7 +22,8 @@ class HelloController extends Controller
         $data = [
             'id'=>$id,
             'pass'=>$pass,
-            'txt'=>$request->txt
+            'txt'=>$request->txt,
+            'data'=>['QA1','QA2','QA3','QA4','QA5','QA6','QA7','QA8','QA9']
         ];
         return view("hello.index",$data);
     }
