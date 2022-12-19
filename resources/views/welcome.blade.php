@@ -8,7 +8,7 @@
 </head>
 <style>
     body{
-        background-color: #0faf6c;
+        background-color: #121b18;
         color:#fff;
     }
 </style>
@@ -16,6 +16,7 @@
     <h1>Laravelら！</h1>
     {{Form::open()}}
         {{ Form::text("name","", ['id' => 'id_name', 'size' => 50, 'maxlength' => 10]) }}
+        {{ Form::submit("送信", [])  }}
     {{Form::close()}}
 </body>
 </html>
