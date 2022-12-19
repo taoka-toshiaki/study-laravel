@@ -9,11 +9,19 @@ class HelloController extends Controller
     //
     public function index($id="noname",$pass="unknown",Request $request ,Response $response){
         $data =[
-        "id"=>$id,
-        "pass"=>$pass,
+        'id'=>$id,
+        'pass'=>$pass,
         'data1'=>$request->url()?$request->url():"",
         'data2'=>$request->fullUrl()?$request->fullUrl():"",
         'data3'=>$request->path()?$request->path():""
+        ];
+        return view("hello.index",$data);
+    }
+    public function post($id="nomame",$pass="unknown",Request $request){
+        $data = [
+            'id'=>$id,
+            'pass'=>$pass,
+            'txt'=>$request->txt
         ];
         return view("hello.index",$data);
     }
