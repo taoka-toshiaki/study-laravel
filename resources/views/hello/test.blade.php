@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach($data as $key=>$item)
-        {{ $key }}=>{{ $item }}
-    @endforeach
+taoka
 </body>
 </html>
