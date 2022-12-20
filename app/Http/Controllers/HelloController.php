@@ -30,4 +30,9 @@ class HelloController extends Controller
         ];
         return view("hello.index",$data);
     }
+    
+    public function test(Request $request)
+    {
+        return view('hello.test',['data'=>$request->data]);
+    }
 }
