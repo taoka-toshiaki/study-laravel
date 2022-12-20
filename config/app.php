@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * 個人的に追加
+         */
+        App\Providers\HelloServiceProvider::class,
     ],
 
     /*
