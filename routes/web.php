@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\HelloMiddleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +21,4 @@ Route::post('hello/{id}/{pass?}',"\App\Http\Controllers\HelloController@post");
 Route::post('/', function () {
     return view('welcome');
 });
-Route::get('hello','\App\Http\Controllers\HelloController@test');
+Route::get('hello','\App\Http\Controllers\HelloController@test')->middleware('hello');

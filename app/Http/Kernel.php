@@ -23,7 +23,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         // オリジナル 追加
-        \App\Http\Middleware\HelloMiddleware::class,
+        // \App\Http\Middleware\HelloMiddleware::class,
     ];
 
     /**
@@ -45,6 +45,10 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+        // オリジナル 追加
+        'hello'=>[
+            \App\Http\Middleware\HelloMiddleware::class,
         ],
     ];
 
