@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <title>Laravelら！</title>
 </head>
 <style>
@@ -14,9 +17,22 @@
 </style>
 <body>
     <h1>Laravelら！</h1>
-    {{Form::open()}}
-        {{ Form::text("name","", ['id' => 'id_name', 'size' => 50, 'maxlength' => 10]) }}
-        {{ Form::submit("送信", [])  }}
-    {{Form::close()}}
+    <form method="post" action="/">
+        {{ csrf_field() }}
+        <input class="form-control" type="text" name="txt" value="{{ old('txt') }}" placeholder="txt"><br>      
+        <input class="form-control" type="text" name="mail" value="{{ old('mail') }}"  placeholder="mail"><br>      
+        <input class="form-control" type="text" name="age" value="{{ old('age') }}" placeholder="age"><br>      
+        <button class="btn btn-primary" type="submit">submit</button>
+        {{ $msg }}
+        @if(count($errors))
+        <div class="alert alert-danger" role="alert">
+            <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+        @endif
+    </form>
 </body>
 </html>

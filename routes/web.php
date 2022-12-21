@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',["msg"=>'']);
 });
 Route::get('hello/{id}/{pass?}', "\App\Http\Controllers\HelloController@index");
 Route::post('hello/{id}/{pass?}',"\App\Http\Controllers\HelloController@post");
-Route::post('/', function () {
-    return view('welcome');
-});
+Route::post('/','\App\Http\Controllers\SubmitController@post');
 Route::get('hello','\App\Http\Controllers\HelloController@test')->middleware('hello');
