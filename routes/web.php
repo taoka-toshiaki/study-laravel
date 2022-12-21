@@ -21,4 +21,4 @@ Route::post('hello/{id}/{pass?}',"\App\Http\Controllers\HelloController@post");
 Route::post('/', function () {
     return view('welcome');
 });
-Route::get('hello','\App\Http\Controllers\HelloController@test')->middleware(HelloMiddleware::class);
+Route::get('hello','\App\Http\Controllers\HelloController@test');
