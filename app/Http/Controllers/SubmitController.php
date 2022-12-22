@@ -36,11 +36,11 @@ class SubmitController extends Controller
         // ];
         // $this->validate($request,$validate_rule);
         $validator = Validator::make($request->all(),[
-            'txt'=>'taoka',
+            'txt'=>'tt',
             'mail'=>'email',
             'age'=>'numeric'
         ],[
-            'txt.taoka'=>'taokaですか？',
+            'txt.tt'=>'taokaですか？',
         ]);
         // $validator->sometimes('txt','required',function($input){
         //     return strcmp($input->txt,'taoka');

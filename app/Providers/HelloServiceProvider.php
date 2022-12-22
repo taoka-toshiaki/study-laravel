@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use Illuminate\Validation\Validator;
+
+use Illuminate\Support\Facades\Validator;
+
+// use Illuminate\Validation\Validator;
 use \App\Http\Validators\TaokaValidator;
 
 class HelloServiceProvider extends ServiceProvider
@@ -28,9 +31,12 @@ class HelloServiceProvider extends ServiceProvider
     {
         //
         //view::composer('hello.index','App\Http\mydir\HelloComposer');
-        $validator = $this->app['validator'];
-        $validator->resolver(function($translator,$data,$rules,$messages){
-            return new TaokaValidator($translator,$data,$rules,$messages);
+        // $validator = $this->app['validator'];
+        // $validator->resolver(function($translator,$data,$rules,$messages){
+        //     return new TaokaValidator($translator,$data,$rules,$messages);
+        // });
+        Validator::extend('tt',function($attribute,$value,$parameters,$validator){
+            return strcmp($value,'taoka')===0;
         });
     }
 }
