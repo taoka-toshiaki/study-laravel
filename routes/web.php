@@ -18,3 +18,4 @@ Route::post('/','\App\Http\Controllers\SubmitController@post');
 Route::get('hello/{id}/{pass?}', "\App\Http\Controllers\HelloController@index");
 Route::post('hello/{id}/{pass?}',"\App\Http\Controllers\HelloController@post");
 Route::get('hello','\App\Http\Controllers\HelloController@test')->middleware('hello');
+Route::get('/db','\App\Http\Controllers\HelloDBController@index');
