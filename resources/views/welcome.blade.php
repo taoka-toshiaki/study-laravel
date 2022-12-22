@@ -34,5 +34,6 @@
         </div>
         @endif
     </form>
+    {{ $cookie }}
 </body>
 </html>

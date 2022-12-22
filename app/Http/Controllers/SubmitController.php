@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+// use Facade\FlareClient\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 // use \App\Http\Requests\HelloRequest;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +25,12 @@ class SubmitController extends Controller
         }else{
             $msg = 'パラメーターOK';
         }
-        return view('welcome',['msg'=>$msg]);
+        $cookie = 'クッキーはないよ';
+        if($request->hasCookie('msg')){
+            $cookie = 'クッキーはあるよ🍪';
+        }        
+        Cookie::queue('msg',$cookie,99);
+        return view('welcome',['msg'=>$msg,'cookie'=>$cookie]);
     }
 
 
@@ -48,6 +55,12 @@ class SubmitController extends Controller
         if($validator->fails()){
             return redirect('/')->withErrors($validator)->withInput();
         }
-        return view("welcome",['msg'=>'ok']);
+        $cookie = 'クッキーはないよ';
+        if($request->hasCookie('msg')){
+            $cookie = 'クッキーはあるよ🍪';
+        }
+        Cookie::queue('msg',$cookie,99);
+
+        return view("welcome",['msg'=>'ok','cookie'=>$cookie]);
     }
 }
