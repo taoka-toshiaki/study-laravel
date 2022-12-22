@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 // use Facade\FlareClient\Http\Response;
+
+use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 // use \App\Http\Requests\HelloRequest;
@@ -25,10 +27,12 @@ class SubmitController extends Controller
         }else{
             $msg = 'パラメーターOK';
         }
+        
         $cookie = 'クッキーはないよ';
         if($request->hasCookie('msg')){
             $cookie = 'クッキーはあるよ🍪';
-        }        
+        }
+
         Cookie::queue('msg',$cookie,99);
         return view('welcome',['msg'=>$msg,'cookie'=>$cookie]);
     }
@@ -62,5 +66,15 @@ class SubmitController extends Controller
         Cookie::queue('msg',$cookie,99);
 
         return view("welcome",['msg'=>'ok','cookie'=>$cookie]);
+    }
+
+    public function TestRedirect(Request $request)
+    {
+        redirect()->route('hello.index');
+        redirect()->action('HelloController@post',['id'=>'oreore']);
+        redirect()->view('welcome',['data'=>'']);
+        redirect()->json('{hoge:oreore}');
+        redirect()->download('123.txt');
+        redirect()->file('123.txt');
     }
 }
