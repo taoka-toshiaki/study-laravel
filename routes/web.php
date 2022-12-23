@@ -21,3 +21,4 @@ Route::get('hello','\App\Http\Controllers\HelloController@test')->middleware('he
 Route::get('/db','\App\Http\Controllers\HelloDBController@index');
 Route::get('/db/add','\App\Http\Controllers\HelloDBController@addindex');
 Route::post('/db/add','\App\Http\Controllers\HelloDBController@addpost');
+Route::get('/db/index','\App\Http\Controllers\PersonController@index');
