@@ -15,7 +15,7 @@ class PersonController extends Controller
         
         if(isset($request->id)){
             // $item = Person::find(((int)$request->id));
-            $items = Person::orwhere('id',"=",(int)$request->id)->orwhere('mail','like','%gmail%')->orderBy('id','desc')->get();
+            $items = Person::nameA('a')->orwhere('mail','like','%gmail%')->orderBy('id','desc')->get();
         }else{
             $items = Person::all();
         }
