@@ -10,7 +10,15 @@ class PersonController extends Controller
     //
     public function index(Request $request)
     {
-        $items = Person::all();
-        return view('person.index',["items"=>$items]);
+        $items = null;
+        $item = null;
+        
+        if(isset($request->id)){
+            $item = Person::find(((int)$request->id));
+        }else{
+            $items = Person::all();
+        }
+        
+        return view('person.index',["items"=>$items,'person'=>$item]);
     }
 }
