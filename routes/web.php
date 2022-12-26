@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +26,5 @@ Route::get('/db/index','\App\Http\Controllers\PersonController@index');
 Route::resource('/rest','\App\Http\Controllers\RestappContoroller');
 Route::get('/hello/rest','\App\Http\Controllers\RestappContoroller@rest');
 Auth::routes();
+Route::get('/home', '\App\Http\Controllers\HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
