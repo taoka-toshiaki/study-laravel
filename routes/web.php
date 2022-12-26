@@ -25,3 +25,6 @@ Route::post('/db/add','\App\Http\Controllers\HelloDBController@addpost');
 Route::get('/db/index','\App\Http\Controllers\PersonController@index');
 Route::resource('/rest','\App\Http\Controllers\RestappContoroller');
 Route::get('/hello/rest','\App\Http\Controllers\RestappContoroller@rest');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
