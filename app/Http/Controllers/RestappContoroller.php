@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Restdata;
 
@@ -16,8 +16,10 @@ class RestappContoroller extends Controller
     public function index()
     {
         //
-        $items = Restdata::all();
-        return $items->toArray();
+        // $items = DB::table('restdata')->simplePaginate(3);
+        // $items = Restdata::orderBy('id','desc')->simplePaginate(3);
+        $items = Restdata::orderBy('id','desc')->Paginate(3);
+        return view('rest.index',['items'=>$items]);
     }
 
     /**
