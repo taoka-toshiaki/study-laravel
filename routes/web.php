@@ -28,3 +28,5 @@ Route::get('/hello/rest','\App\Http\Controllers\RestappContoroller@rest');
 Auth::routes();
 Route::get('/home', '\App\Http\Controllers\HomeController@index')->name('home');
 
+Route::get('/OpenAI/openaishow','\App\Http\Controllers\OpenaisController@openaishow');
+Route::resource('/OpenAI','\App\Http\Controllers\OpenaisController');
